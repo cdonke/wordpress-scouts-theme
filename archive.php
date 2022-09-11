@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 	<div id="page-content">
 		<div id="content-wide">
-		
+			
 				<h1 class="page-title">
 				<?php if (is_tag()) : ?>
 					<?php single_tag_title('Tag: '); ?>
@@ -11,7 +11,8 @@
 				  Archives
 				<?php endif; ?>
 				</h1>
-				
+			
+
 				<?php
 				// Start the loop
 				while(have_posts() ) : the_post();

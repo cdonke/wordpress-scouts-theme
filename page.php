@@ -3,8 +3,8 @@
 // If this is the home page, it should show the frontpage layout with selected posts.
 if ( is_front_page() ) {
 	?>
-	<div id="front-pic">
-	<?php
+<div>
+    <?php
 /* If this is a home page
    We will check if it has a gallery.  If yes, show the content.
 	 If not we will check if it has a featured image.  If yes, show the featured image.
@@ -40,14 +40,11 @@ if ( is_front_page() ) {
 		$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'front-image' );
 		$url = $thumb['0']; 
 		?>
-		<img id="front-image" src="<?php echo $url; ?>" alt="Boy Scouts of America" />	
-		<?php	
+    <?php	
 		}
 		
 // Else use the default image.		
-		else { ?>
-			<img id="front-image" src="<?php echo get_template_directory_uri(); ?>/images/front-pic.jpg" alt="Boy Scouts of America" />
-		<?php
+		else { 
 		}
 
 		// Reset Query in case we do something at another time.
@@ -56,65 +53,53 @@ if ( is_front_page() ) {
 		// Get the latest three posts in the home-page-sections category
 		query_posts( array ( 'category_name' => 'home-page', 'posts_per_page' => 4 ) );
 
-		// Start the loop
-		$loopi=1;
-
 		if ( have_posts() ) : while ( have_posts() ) : the_post();
-		if ($loopi==1) {
+		if (!has_post_thumbnail()) {
 			?>
-			<img id="front-image-bottom" src="<?php echo get_template_directory_uri(); ?>/images/Prepared_for_life.gif" alt="Prepared for Life" />
 			</div>
-			<div id="front-first">
-			<section>
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<header>
-			<h1 class="entry-title"><?php the_title(); ?></h1>
-			</header>
-			<?php the_content(); ?>
-			</article>
-			</section>
+			<div id="front-third">
+				<section>
+					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+						<header>
+							<h1 class="entry-title"><?php the_title(); ?></h1>
+						</header>
+						<?php the_content(); ?>
+
+					</article>
+				</section>
 			</div>
 			<div id="front-bottom">
-			<?php
-		}
-		else {
-			?>
-			<div class="content-third">
-			<section>
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<header>
-			<h1 class="entry-title"><?php the_title(); ?></h1>
-			</header>
-			<?php the_content(); ?>
-			</article>
-			</section>
-			</div>
-			<?php	
-		}	 
-		$loopi++;
-
-		// Loop ends
-		endwhile;
-		?>
-	</div>
 		<?php
-		// Nothing in the loop?
-		else :
+			}
+			else 
+			{
 		?>
-			<div id="front-first">
-			<article id="post-0" class="post no-results not-found">
-			<header>
-			<h2 class="entry-title">Set Up the Homepage</h2>
-			</header>
-			<p>You still need to set up the home page posts. Here are the steps:</p>
-			<ol>
-			<li>Create (or rename) a post category "Home Page Articles" and change the slug to "home-page".</li>
-			<li>Create four posts with the category "Home Page Articles". These will be the text on the front page.</li>
-			</ol>
-
-			</article>
+			<div>
+				<section>
+					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+						<header>
+							<h1 class="entry-title"><?php the_title(); ?></h1>
+						</header>
+						<div class="content-half">
+							<?php the_content(); ?>
+						</div>
+						<div class="content-half thumb">
+						<?php 
+								$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'front-image' );
+								$url = $thumb['0']; 
+							?>
+							<img src="<?php echo $url ?>" alt="" />
+						</div>
+					</article>
+				</section>
 			</div>
-			<?php
+		<?php	
+			}	 
+			// Loop ends
+			endwhile;
+		?>
+</div>
+<?php
 			// And we're done
 		endif;
 
@@ -125,27 +110,27 @@ if ( is_front_page() ) {
 } else {
 
 ?>
-	<div id="page-content">
-		<div id="content-wide">
-			<section>
-				<?php if ( have_posts() ) : ?>
-					<?php /* The loop */ ?>
-					<?php while ( have_posts() ) : the_post(); ?>
-						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-						<h1 class="entry-title"><?php the_title(); ?></h1>
-			    <?php
+<div id="page-content">
+    <div id="content-wide">
+        <section>
+            <?php if ( have_posts() ) : ?>
+            <?php /* The loop */ ?>
+            <?php while ( have_posts() ) : the_post(); ?>
+            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                <h1 class="entry-title"><?php the_title(); ?></h1>
+                <?php
 			        // The content
 			        the_content();
 			    ?>
-						</article>
-					<?php endwhile; ?>
-				<?php else : ?>
-					<?php get_template_part( 'content', 'none' ); ?>
-				<?php endif; ?>
-			</section>		
-		</div> <!-- End content-wide -->
-		<?php get_sidebar(); ?>
- 	</div> <!-- End page-content -->
-	<?php 
+            </article>
+            <?php endwhile; ?>
+            <?php else : ?>
+            <?php get_template_part( 'content', 'none' ); ?>
+            <?php endif; ?>
+        </section>
+    </div> <!-- End content-wide -->
+    <?php get_sidebar(); ?>
+</div> <!-- End page-content -->
+<?php 
 	} // This is the end bracket for a regular page.
 	get_footer(); ?>

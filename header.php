@@ -3,43 +3,59 @@
  * The Header for Scout Troop theme.
  * Displays all of the <head> section and everything up till <div id="wrapper">
  */
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 
 <html <?php language_attributes(); ?>>
 
 <head>
 
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-	<title><?php wp_title( '|', true, 'right' ); ?><?php echo get_bloginfo( 'name' ); ?><?php echo " | " . get_bloginfo( 'description' )?></title> 
-	<!--[if (lt IE 9)&(!IEMobile)]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>
+        <?php wp_title( '|', true, 'right' ); ?><?php echo get_bloginfo( 'name' ); ?><?php echo " | " . get_bloginfo( 'description' )?>
+    </title>
+    <!--[if (lt IE 9)&(!IEMobile)]>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/css3-mediaqueries.js" /></script>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/html5shiv.js"></script />
 		<script src="<?php echo get_template_directory_uri(); ?>/js/html5shiv-printshiv.js" /></script>
 	<![endif]-->
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-	<link rel="stylesheet" href='//fonts.googleapis.com/css?family=Marcellus&subset=latin-ext,latin' />
-	<?php wp_head(); ?>
-	
+    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+    <link rel="stylesheet" href='//fonts.googleapis.com/css?family=Marcellus&subset=latin-ext,latin' />
+    <?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
 
-<p class="skip"><a accesskey="C" href="#wrapper">Skip to content</a>. <a accesskey="N" href="#main-navigation">Skip to main navigation</a>.</p>
+    <p class="skip"><a accesskey="C" href="#wrapper">Skip to content</a>. <a accesskey="N" href="#main-navigation">Skip
+            to main navigation</a>.</p>
 
-<header id="page-header">
-<div id="charter-box"><?php bloginfo( 'description' ); ?></div>
-<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" 
-rel="home"><img id="mobile-logo" src="<?php echo get_template_directory_uri(); ?>/images/Universal_Emblem_tiny.gif" alt="B.S.A. 
-Fleur De Lis" /><img id="fleurdelis" src="<?php echo get_template_directory_uri(); ?>/images/Universal_Emblem_bar.png" alt="B.S.A. 
-Fleur De Lis" /><img id="brand" src="<?php echo get_template_directory_uri(); ?>/images/bsa_brand.png" alt="Boy Scouts of America (R)"/></a>
-<span id="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" 
-rel="home"><?php bloginfo( 'name' ); ?></a></span>
-</header>
-<div  id="main-navigation">
-	<div class="menu-button">Menu</div>
-		<?php 
+    <header id="page-header">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>"
+            title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img id="mobile-logo"
+                src="<?php echo get_template_directory_uri(); ?>/images/Universal_Emblem_tiny.gif" alt="B.S.A. 
+Fleur De Lis" />
+            <img id="fleurdelis" src="<?php echo get_template_directory_uri(); ?>/images/sardarabad-home.png"
+                alt="Logo Grupo Escoteiro Sardarabad"  style="height: 110px; width: auto; padding-right: 4px; float: left;border-right: #0A335A 3px solid;"/>
+            <div style="clear: none; float: left; height: 100%; margin-left: 10px;">
+                <div style="position: relative;top: 50%;transform: translateY(-50%); height: 50%">
+                    <h1 id="site-name" rel="home"><?php bloginfo( 'name' ); ?></h1>
+                    <h2 id="charter-box"><?php bloginfo( 'description' ); ?></h2>
+                </div>
+            </div>
+        </a>
+        <div style="float: right;border-left: #0A335A 3px solid;">
+            <a href="https://www.escoteiros.org.br" title="União dos Escoteiros do Brasil" target="_blank">
+                <img id="ueb-logo" src="<?php echo get_template_directory_uri(); ?>/images/ueb.png" alt="Emblema U.E.B."
+                    style="height: 110px;" />
+            </a>
+        </div>
+    </header>
+    <div id="main-navigation">
+        <div class="menu-button">Menu</div>
+        <?php 
 		// If a menu has been assigned to the top-navigation location, show it here else show the default one.
 		if ( has_nav_menu( 'top-navigation' ) ) {
 		 wp_nav_menu( array( 
@@ -55,5 +71,5 @@ rel="home"><?php bloginfo( 'name' ); ?></a></span>
 			} 
 
 		?>
-</div>
-<div id="wrapper">
+    </div>
+    <div id="wrapper">

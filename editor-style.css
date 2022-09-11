@@ -11,7 +11,10 @@ h1,h2 {
 	font-size: 190%;
 	line-height: 130%;
 	margin: 0 0 10px 0;
-	color: #005A9C;
+	color: #0A335A;
+}
+h2 {
+	color:#CE1126
 }
 
 h3 {

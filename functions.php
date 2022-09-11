@@ -102,4 +102,14 @@ function exclude_widget_categories($args){
 }
 add_filter("widget_categories_args","exclude_widget_categories");
 
+
+function archive_join() {
+	return "INNER JOIN wp_term_relationships R ON R.object_id = id";
+}
+function archive_where($where, $args){
+	$where .= " AND term_taxonomy_id = " . $args['category'];
+	return $where;
+}
+add_filter('getarchives_where', 'archive_where', 5, array());
+add_filter('getarchives_join', 'archive_join');
 ?>

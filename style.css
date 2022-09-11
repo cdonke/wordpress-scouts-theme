@@ -102,7 +102,6 @@ header#page-header {
 	width:47.27272727%;
 }
 #charter-box {
-	width: 33%;
 	float: right;
 	text-align: right;
 	color: #005A9C;	
@@ -160,7 +159,7 @@ footer {
 	width: 96.5%;
 	padding: 10px 1.75% 10px 1.75%;
 	margin-top: 15px;
-	background-color: #005A9C;
+	background-color: #0A335A;
 	color: #efefef;
 	clear:both;
 	font-size: 85%;
@@ -261,8 +260,11 @@ h1,h2 {
 	font-size: 190%;
 	line-height: 130%;
 	margin: 0 0 10px 0;
-	color: #005A9C;
+	color: #0A335A;
 	clear:both;
+}
+h2 {
+	color: red;
 }
 article.post {
 	margin-top:25px;
@@ -775,7 +777,7 @@ img {
   z-index: 200;
   overflow: hidden;
   color: #ffffff;
-  background: #005A9C;
+  background: #0A335A;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15); 
 	text-decoration: none;
 }
@@ -862,7 +864,7 @@ img {
 @media all and (min-width: 767px) {
 	#main-navigation {
 		width: 100%;
-		background-color: #005A9C;
+		background-color: #0A335A;
 		height: 40px;
 	}
 	#main-navigation nav {
@@ -901,16 +903,16 @@ img {
 		max-width: 16.75%;
 	}
 	.flexnav li a {
-		border-left: 1px solid #0065AD;
+		border-left: 1px solid #0A335A;
 		border-bottom: none; 
 		overflow: visible;
   	padding: .75em 0 .77em 0;
 	}
 	.flexnav > li:last-child > a, .flexnav li li a {
-		border-right: 1px solid #0065AD;
+		border-right: 1px solid #0A335A;
 	}
 	.flexnav li li {
-		border-bottom: 1px solid #0065AD;
+		border-bottom: 1px solid #0A335A;
 	}
 	.flexnav li li:last-child  {
 		border-bottom: 0;
